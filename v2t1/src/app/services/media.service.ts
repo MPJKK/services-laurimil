@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MediaService {
 
-  testi: string = "Moi vaan";
+  testi: string = "Media Services Testi";
   apiUrl = 'http://media.mw.metropolia.fi/wbma';
 
   constructor(private http: HttpClient) { }

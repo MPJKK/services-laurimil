@@ -1,18 +1,36 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable()
 export class DigitransitService {
 
-  testi: string = "Digitrans";
   // apiUrl = 'https://api.digitransit.fi/graphiql/hsl';
-  apiUrl = 'https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql'
+  apiUrl= 'https://api.digitransit.fi/routing/v1/routers/hsl/index/graphql';
 
   constructor(private http: HttpClient) { }
 
-  getRoutes(){
-    const body = {};
-    return this.http.post(this.apiUrl, body);
+  getRoutes(nimi){
+    const body = `{
+      stops(name:"${nimi}") {
+        name
+        routes {
+          id
+          shortName
+          longName
+        }
+      }
+    }`;
+
+    const headers = {
+      headers: new HttpHeaders().set('Content-Type','application/graphql')
+    };
+
+    interface ReittiData {
+      data: Object;
+    }
+
+    return this.http.post<ReittiData>(this.apiUrl, body, headers);
   }
 
 }

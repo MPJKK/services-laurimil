@@ -16,8 +16,9 @@ export class ListMediaComponent implements OnInit {
 
   ngOnInit() {
     this.tervehdys = this.mediaService.testi;
-    this.kaikkiMedia = this.mediaService.getAllMedia().subscribe(data => {
+    this.mediaService.getAllMedia().subscribe(data => {
       this.kaikkiMedia = data;
+      console.log(data);
 
       // for(let i; i < this.kaikkiMedia.length; i++){
       //   const temp = this.kaikkiMedia[i].filename.split('.');
