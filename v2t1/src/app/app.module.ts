@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -11,6 +12,7 @@ import { DigitransitService } from './services/digitransit.service';
 import { RoutesComponent } from './routes/routes.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { RoutesComponent } from './routes/routes.component';
     RoutesComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, FormsModule
   ],
   providers: [MediaService, DigitransitService],
   bootstrap: [AppComponent]

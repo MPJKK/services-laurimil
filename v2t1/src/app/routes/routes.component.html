@@ -1,8 +1,10 @@
 
 <h2>Pysäkin {{pysakki}} reittitiedot</h2>
+<input #box (keyup.enter)="onEnter(box.value)">
+    <p>{{pysakki}}</p>
 <ul>
-  <li *ngFor="let data of reittiData">
+  <li *ngFor="let data of reittiData" >
     <h4>{{data.longName}}</h4>
-    <p>Tunnus: {{data.shortName}}</p>
+    <p>Linja: {{data.shortName}}</p>
   </li>
 </ul>

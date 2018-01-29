@@ -30,7 +30,7 @@ export class ListMediaComponent implements OnInit {
         const temp = media.filename.split('.');
         const uusinimi = temp[0] + '-tn320.png';
         media.thumbnail = uusinimi;
-      }
+      });
 
       // const temp = this.kaikkiMedia[0].filename.split('.');
 
