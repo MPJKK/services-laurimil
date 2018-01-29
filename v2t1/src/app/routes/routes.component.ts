@@ -17,6 +17,11 @@ export class RoutesComponent implements OnInit {
 
   onEnter(value: string) { // without type info
     this.pysakki = value;
+    this.digitransitService.getRoutes(this.pysakki).subscribe(response =>{
+      this.reittiData = response.data.stops[0].routes;
+      console.log(this.reittiData);
+
+    });
   }
 
   ngOnChanges(changes: SimpleChange) {
